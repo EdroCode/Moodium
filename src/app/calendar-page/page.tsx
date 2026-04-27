@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import Sidebar from "../../components/ui/Sidebar";
+import Sidebar from "../../components/Sidebar";
 import { Calendar } from "@/components/ui/calendar";
 
 export default function CalendarPage() {
