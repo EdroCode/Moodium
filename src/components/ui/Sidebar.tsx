@@ -10,6 +10,14 @@ import {
   Calendar,
 } from "lucide-react";
 
+import {
+  ClerkProvider,
+  Show,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/nextjs";
+
 export default function Sidebar() {
   const items = [
     { name: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
@@ -46,6 +54,11 @@ export default function Sidebar() {
             </a>
           ))}
         </nav>
+        <div className="p-4">
+          <Show when="signed-in">
+            <UserButton />
+          </Show>
+        </div>
       </div>
     </div>
   );
