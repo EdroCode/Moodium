@@ -28,7 +28,7 @@ function MoodCard({
   return (
     <button
       onClick={onClick}
-      className={`flex flex-col cursor-pointer items-center justify-center gap-3 p-6 rounded-md shadow-sm hover:shadow-md hover:scale-105 transition w-40 h-40 ${color} ${selected ? "ring-2 ring-primary scale-105" : ""}`}
+      className={`flex flex-col cursor-pointer items-center justify-center gap-3 p-6 rounded-md shadow-sm hover:shadow-md hover:scale-105 transition w-36 h-36 ${color} ${selected ? "ring-2 ring-primary scale-105" : ""}`}
     >
       <div className="w-18 h-18 rounded-full flex items-center justify-center bg-white/60">
         <Icon className="w-12 h-12" />
@@ -102,16 +102,17 @@ export default function MoodEntry() {
 
   if (alreadyLogged || success) {
     return (
-      <div className="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-md p-6 text-center">
+      <div className="flex flex-col gap-12 w-full min-w-4xl mx-auto bg-white items-center justify-center rounded-2xl shadow-sm hover:shadow-md p-6 text-center">
         <p className="text-lg font-play text-primary">
           You've already logged today. See you tomorrow.
         </p>
+        <Smile className="text-primary/40 w-24 h-24 hover:text-logo hover:scale-105 duration-300 transition-all "></Smile>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-md p-6">
+    <div className="w-full min-w-4xl mx-auto bg-white rounded-lg shadow-sm hover:shadow-md p-6">
       <h2 className="text-lg font-play text-primary mb-6">
         How are you feeling right now?
       </h2>
@@ -135,7 +136,7 @@ export default function MoodEntry() {
         <Pen />
         <input
           className="w-full font-play outline-none text-md"
-          placeholder="Add a note, some tags, reflect..."
+          placeholder="Add a note, reflect..."
           value={note}
           onChange={(e) => setNote(e.target.value)}
         />
