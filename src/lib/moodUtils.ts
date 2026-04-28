@@ -1,4 +1,5 @@
 import { MoodEntry } from "@/hooks/useMoodEntries";
+import { supabase } from "@/lib/supabase";
 
 const MOOD_RANK: Record<string, number> = {
   great: 5,
@@ -79,4 +80,16 @@ export function getWeeklySummary(entries: MoodEntry[]) {
       average: getAverageMood(entries),
       count: entries.length,
     }));
+}
+
+export async function hasLoggedToday(userId: string): Promise<boolean> {
+  const today = new Date().toISOString().split("T")[0];
+  const { data } = await supabase
+    .from("mood_entries")
+    .select("id")
+    .eq("user_id", userId)
+    .eq("date", today)
+    .single();
+
+  return !!data;
 }

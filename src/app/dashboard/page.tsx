@@ -5,6 +5,7 @@ import Sidebar from "../../components/Sidebar";
 import MoodStreak from "@/components/MoodStreak";
 import { useUser } from "@clerk/nextjs";
 import MoodEntry from "../../components/MoodEntry";
+import WeekResume from "@/components/WeekResume";
 import Image from "next/image";
 
 const moods = [
@@ -28,16 +29,16 @@ export default function Dashboard() {
   const { user } = useUser();
 
   return (
-    <div className="flex min-h-screen bg-gray-100/30 text-zinc-100 font-sans">
+    <div className="flex min-h-screen bg-gray-300/30 text-zinc-100 font-sans w-full">
       <Sidebar />
-      <div className="flex flex-col  p-8 gap-4">
-        <div className="flex ">
+      <div className="flex flex-col w-full gap-4 p-4">
+        <div className="flex items-center gap-4">
           <Image
             src="/moodium.png"
             alt="Moodium Logo"
             width={90}
             height={48}
-            className="hover:scale-115 hover:rotate-10 transition-all duration-500 "
+            className="hover:scale-115 hover:rotate-10 transition-all duration-500"
           />
           <div className="flex flex-col">
             <h1 className="text-mood-great text-xl font-semibold font-play">
@@ -51,9 +52,15 @@ export default function Dashboard() {
             </h1>
           </div>
         </div>
-        <div className="flex gap-4">
-          <MoodEntry />
-          <MoodStreak />
+
+        <div className="grid grid-cols-9 gap-x-4 gap-y-4">
+          <div className="grid col-span-7 gap-x-4 gap-y-4 ">
+            <MoodEntry />
+          </div>
+          <div className="grid col-span-2 gap-x-4 gap-y-4 ">
+            <MoodStreak />
+            <WeekResume />
+          </div>
         </div>
       </div>
     </div>
