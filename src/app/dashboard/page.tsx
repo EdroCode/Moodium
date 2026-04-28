@@ -3,6 +3,7 @@
 import { LayoutDashboard, Calendar, Plus, LineChart } from "lucide-react";
 import Sidebar from "../../components/ui/Sidebar";
 import { useUser } from "@clerk/nextjs";
+import MoodEntry from "@/components/MoodEntry";
 
 const moods = [
   { label: "Great", color: "bg-emerald-900/40 text-emerald-200" },
@@ -34,6 +35,7 @@ export default function Dashboard() {
         <h1 className="text-primary text-3xl font-semibold font-play">
           Welcome back {user?.fullName}
         </h1>
+        <MoodEntry />
       </div>
     </div>
   );
