@@ -2,6 +2,9 @@
 import { Flame, ArrowBigRight } from "lucide-react";
 import { useMoodEntries } from "@/hooks/useMoodEntries";
 import { getStreak } from "@/lib/moodUtils";
+import { useUser } from "@clerk/nextjs";
+import { hasLoggedToday } from "@/lib/moodUtils";
+import { useState, useEffect } from "react";
 
 function WeekCircle({ active, day }: { active: boolean; day: string }) {
   return (
@@ -38,6 +41,14 @@ export default function MoodStreak() {
     return { dateStr, hasEntry, dayInitial };
   });
 
+  const { user } = useUser();
+  const [logged, setLogged] = useState(false);
+
+  useEffect(() => {
+    if (!user) return;
+    hasLoggedToday(user.id).then(setLogged);
+  }, [user]);
+
   if (loading) return null;
 
   return (
@@ -46,7 +57,13 @@ export default function MoodStreak() {
         CURRENT STREAK
       </h1>
       <div className="flex gap-4 items-center">
-        <Flame className="w-24 h-20 text-mood-low bg-mood-low/20 rounded-3xl p-2" />
+        <Flame
+          className={
+            logged
+              ? "w-24 h-20 text-mood-low bg-mood-low/20 rounded-3xl p-2"
+              : "w-24 h-20 text-mood-good/80 bg-mood-good/40 rounded-3xl p-2 animate-pulse"
+          }
+        />
         <h1 className="font-ultra text-primary text-4xl px-4">
           {streak} {getStreakText(streak)}
         </h1>
