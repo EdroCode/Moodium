@@ -19,7 +19,7 @@ const items = [
 
 export default function Sidebar() {
   return (
-    <aside className="flex flex-col h-screen w-64 border-r border-gray-200 bg-white shrink-0">
+    <aside className="flex flex-col h-screen w-60 border-r border-gray-200 bg-white shrink-0">
       <div className="p-4">
         <a className="flex gap-2 items-center">
           <span className="block w-6 h-6 rounded-full bg-logo"></span>
