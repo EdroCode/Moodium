@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useUser } from "@clerk/nextjs";
 import { supabase } from "@/lib/supabase";
 
@@ -18,22 +18,23 @@ export function useMoodEntries() {
   const [entries, setEntries] = useState<MoodEntry[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const fetchEntries = useCallback(async () => {
+    if (!user) return;
+    setLoading(true);
+    const { data } = await supabase
+      .from("mood_entries")
+      .select("*")
+      .eq("user_id", user.id)
+      .order("date", { ascending: false });
+
+    setEntries(data || []);
+    setLoading(false);
+  }, [user]);
+
   useEffect(() => {
     if (!isLoaded || !user) return;
+    fetchEntries();
+  }, [user, isLoaded, fetchEntries]);
 
-    const fetch = async () => {
-      const { data } = await supabase
-        .from("mood_entries")
-        .select("*")
-        .eq("user_id", user.id)
-        .order("date", { ascending: false });
-
-      setEntries(data || []);
-      setLoading(false);
-    };
-
-    fetch();
-  }, [user, isLoaded]);
-
-  return { entries, loading };
+  return { entries, loading, refetch: fetchEntries };
 }

@@ -47,7 +47,7 @@ export default function Sidebar() {
             <a
               key={name}
               href={href}
-              className="flex cursor-pointer font-play items-center text-lg text-primary gap-3 rounded-lg px-3 py-2 hover:bg-mood-great/10"
+              className="flex cursor-pointer font-play items-center text-lg text-primary gap-3 rounded-lg px-3 py-2 hover:bg-logo/20"
             >
               <Icon className="w-5 h-5" />
               <span>{name}</span>
