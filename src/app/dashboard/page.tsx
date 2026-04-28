@@ -1,9 +1,9 @@
 "use client";
 
 import { LayoutDashboard, Calendar, Plus, LineChart } from "lucide-react";
-import Sidebar from "../../components/ui/Sidebar";
+import Sidebar from "../../components/Sidebar";
 import { useUser } from "@clerk/nextjs";
-import MoodEntry from "@/components/MoodEntry";
+import MoodEntry from "../../components/MoodEntry";
 
 const moods = [
   { label: "Great", color: "bg-emerald-900/40 text-emerald-200" },
@@ -28,7 +28,7 @@ export default function Dashboard() {
   return (
     <div className="flex min-h-screen bg-white text-zinc-100 font-sans">
       <Sidebar />
-      <div className="flex flex-col p-8 gap-2">
+      <div className="flex flex-col p-8 gap-4">
         <h1 className="text-mood-great text-xl font-semibold font-play">
           {new Date().toDateString()}
         </h1>
