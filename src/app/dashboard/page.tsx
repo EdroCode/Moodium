@@ -7,6 +7,7 @@ import { useUser } from "@clerk/nextjs";
 import MoodEntry from "../../components/MoodEntry";
 import WeekResume from "@/components/WeekResume";
 import Image from "next/image";
+import DailyQuote from "@/components/DailyQuote";
 
 const moods = [
   { label: "Great", color: "bg-emerald-900/40 text-emerald-200" },
@@ -56,6 +57,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-9 gap-x-4 gap-y-4">
           <div className="grid col-span-7 gap-x-4 gap-y-4 ">
             <MoodEntry />
+            <DailyQuote />
           </div>
           <div className="grid col-span-2 gap-x-4 gap-y-4 ">
             <MoodStreak />
