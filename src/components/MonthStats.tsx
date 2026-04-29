@@ -14,7 +14,18 @@ const MOOD_COLORS: Record<string, string> = {
 export default function MonthStats() {
   const { entries, loading } = useMoodEntries();
 
-  if (loading) return null;
+  if (loading)
+    return (
+      <div className="flex flex-col gap-4 w-full items-center justify-center rounded-2xl bg-white shadow-sm p-12 text-center">
+        <div className="relative w-14 h-14">
+          <div className="absolute inset-0 rounded-full border-4 border-primary/10" />
+          <div className="absolute inset-0 rounded-full border-4 border-t-primary border-l-transparent border-r-transparent border-b-transparent animate-spin" />
+        </div>
+        <p className="font-dm-sans text-primary/50 text-sm tracking-wide">
+          Processing…
+        </p>
+      </div>
+    );
 
   const now = new Date();
   const monthName = now.toLocaleDateString("en-GB", {

@@ -24,8 +24,10 @@ export default function Dashboard() {
               <Image
                 src="/moodium.png"
                 alt="Moodium Logo"
-                width={125}
-                height={90}
+                width={90}
+                height={48}
+                loading="eager"
+                style={{ height: "auto" }}
                 className="hover:scale-115 hover:rotate-10 transition-all duration-500"
               />
               <div className="flex flex-col my-4">
