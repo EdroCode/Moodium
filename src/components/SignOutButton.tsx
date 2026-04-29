@@ -9,7 +9,7 @@ export default function SignOutButton() {
   return (
     <button
       onClick={() => signOut({ redirectUrl: "/" })}
-      className="flex items-center gap-2 font-dm-sans text-lg text-primary  transition-all duration-200 p-2 rounded-lg cursor-pointer hover:font-semibold "
+      className="flex w-full items-center gap-2 font-dm-sans text-md text-primary  transition-all duration-200 p-2 rounded-lg cursor-pointer hover:font-semibold "
     >
       <LogOut className="w-4 h-4" strokeWidth={1.5} />
       Sign out

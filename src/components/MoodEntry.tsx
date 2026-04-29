@@ -28,7 +28,7 @@ function MoodCard({
   return (
     <button
       onClick={onClick}
-      className={`flex flex-col cursor-pointer items-center justify-center gap-3 p-6 rounded-md shadow-sm hover:shadow-md hover:scale-105 transition w-full h-full ${color} ${selected ? "ring-2 ring-primary scale-105" : ""}`}
+      className={`flex flex-col cursor-pointer items-center justify-center gap-3 p-6 rounded-md shadow-sm hover:shadow-md hover:scale-105 transition w-full h-full ${color} ${selected ? "ring-2 ring-color scale-105" : ""}`}
     >
       <div className="w-18 h-18 rounded-full flex items-center justify-center bg-white/60">
         <Icon className="w-12 h-12" />
@@ -158,7 +158,7 @@ export default function MoodEntry() {
       <button
         onClick={handleSubmit}
         disabled={!selectedMood || loading}
-        className="w-full py-3 cursor-pointer bg-primary text-white font-play rounded-md disabled:opacity-40 hover:opacity-90 transition"
+        className="w-full py-3 cursor-pointer bg-logo-dark text-white font-play rounded-md disabled:opacity-40 hover:opacity-90 transition"
       >
         {loading ? "Saving..." : "Save Entry"}
       </button>
