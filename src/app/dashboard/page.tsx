@@ -20,12 +20,12 @@ export default function Dashboard() {
       <main className="flex flex-col w-full gap-4 p-4">
         <div className="grid grid-cols-9 gap-4">
           <div className="col-span-7 flex flex-col gap-4">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center">
               <Image
                 src="/moodium.png"
                 alt="Moodium Logo"
-                width={90}
-                height={48}
+                width={125}
+                height={90}
                 className="hover:scale-115 hover:rotate-10 transition-all duration-500"
               />
               <div className="flex flex-col my-4">
