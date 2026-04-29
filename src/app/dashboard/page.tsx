@@ -7,6 +7,7 @@ import MoodEntry from "@/components/MoodEntry";
 import MoodStreak from "@/components/MoodStreak";
 import WeekResume from "@/components/WeekResume";
 import DailyQuote from "@/components/DailyQuote";
+import RecentEntries from "@/components/RecentEntries";
 
 export default function Dashboard() {
   const { user } = useUser();
@@ -40,6 +41,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-9 gap-4">
           <div className="col-span-7 flex flex-col gap-4">
             <MoodEntry />
+            <RecentEntries />
             <DailyQuote />
           </div>
 
