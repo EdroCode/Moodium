@@ -28,7 +28,7 @@ function MoodCard({
   return (
     <button
       onClick={onClick}
-      className={`flex flex-col cursor-pointer items-center justify-center gap-3 p-6 rounded-md shadow-sm hover:shadow-md hover:scale-105 transition w-36 h-36 ${color} ${selected ? "ring-2 ring-primary scale-105" : ""}`}
+      className={`flex flex-col cursor-pointer items-center justify-center gap-3 p-6 rounded-md shadow-sm hover:shadow-md hover:scale-105 transition w-full h-full ${color} ${selected ? "ring-2 ring-primary scale-105" : ""}`}
     >
       <div className="w-18 h-18 rounded-full flex items-center justify-center bg-white/60">
         <Icon className="w-12 h-12" />
@@ -117,7 +117,7 @@ export default function MoodEntry() {
         How are you feeling right now?
       </h2>
 
-      <div className="flex gap-4 justify-between flex-wrap">
+      <div className="grid grid-cols-5 gap-4 justify-between flex-wrap">
         {moods.map((mood) => (
           <MoodCard
             key={mood.label}

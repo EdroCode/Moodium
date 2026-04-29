@@ -137,9 +137,7 @@ export default function RecentEntries() {
   return (
     <div className="flex flex-col w-full bg-white shadow-sm hover:shadow-md rounded-xl p-6 gap-4">
       <header className="flex justify-between items-center">
-        <h1 className="font-play text-lg text-primary">
-          Your recent entries
-        </h1>
+        <h1 className="font-play text-lg text-primary">Your recent entries</h1>
         <a
           href="/calendar-page"
           className="flex gap-1 items-center text-primary/50 hover:text-primary duration-200 transition-all"
