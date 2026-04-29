@@ -6,8 +6,8 @@ import {
   LayoutDashboard,
   Calendar,
 } from "lucide-react";
-import { Show, UserButton } from "@clerk/nextjs";
 import SidebarProfile from "./SidebarProfile";
+import { usePathname } from "next/navigation";
 
 const items = [
   { name: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
@@ -18,6 +18,8 @@ const items = [
 ];
 
 export default function Sidebar() {
+  const pathname = usePathname();
+
   return (
     <aside className="flex flex-col h-screen w-60 border-r border-gray-200 bg-white shrink-0">
       <div className="p-4">
@@ -35,19 +37,27 @@ export default function Sidebar() {
       <hr className="w-full h-px border-0 bg-primary/10" />
 
       <nav className="flex-1 space-y-1 px-2 py-4">
-        {items.map(({ name, icon: Icon, href }) => (
-          <a
-            key={name}
-            href={href}
-            className="flex cursor-pointer font-play items-center text-lg text-primary gap-3 rounded-lg px-3 py-2 hover:bg-logo/20"
-          >
-            <Icon className="w-5 h-5" />
-            <span>{name}</span>
-          </a>
-        ))}
+        {items.map(({ name, icon: Icon, href }) => {
+          const isActive = pathname === href;
+          return (
+            <a
+              key={name}
+              href={href}
+              className={`flex items-center font-play text-lg text-primary gap-3 rounded-lg px-3 py-2 transition-all duration-200 ${
+                isActive ? "bg-logo/20" : "hover:bg-logo/20"
+              }`}
+            >
+              <Icon
+                className={`w-5 h-5 ${isActive ? "text-logo" : ""}`}
+                strokeWidth={isActive ? 2 : 1.5}
+              />
+              <span className={isActive ? "font-semibold" : ""}>{name}</span>
+            </a>
+          );
+        })}
       </nav>
 
-      <div className="p-4 border-t">
+      <div className="p-4 border-t border-gray-100">
         <SidebarProfile />
       </div>
     </aside>

@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --color-primary: #18181b;
   --color-logo: #8a84e2;
+  --color-logo-dark: #615bc0;
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);

@@ -9,7 +9,6 @@ import WeekResume from "@/components/WeekResume";
 import DailyQuote from "@/components/DailyQuote";
 import RecentEntries from "@/components/RecentEntries";
 import MonthStats from "@/components/MonthStats";
-import SignOutButton from "@/components/SignOutButton";
 
 export default function Dashboard() {
   const { user } = useUser();
@@ -26,8 +25,8 @@ export default function Dashboard() {
                 <Image
                   src="/moodium.png"
                   alt="Moodium Logo"
-                  width={128}
-                  height={48}
+                  width={120}
+                  height={100}
                   loading="eager"
                   style={{ height: "auto" }}
                   className="hover:scale-115 hover:rotate-10 transition-all duration-500"
@@ -44,7 +43,6 @@ export default function Dashboard() {
                   </p>
                 </div>
               </div>
-              <SignOutButton />
             </div>
             <MoodEntry />
             <RecentEntries />
