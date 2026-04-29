@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Oi&family=Play:wght@400;700&family=Ultra&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Oi&family=Play:wght@400;700&family=Ultra&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -16,6 +16,7 @@
   --font-oi: "Oi", serif;
   --font-ultra: "Ultra", serif;
   --font-play: "Play", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
 
   /* Mood system */
   --color-mood-great: #4f8a5b;

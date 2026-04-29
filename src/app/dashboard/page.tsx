@@ -1,39 +1,22 @@
 "use client";
 
-import { LayoutDashboard, Calendar, Plus, LineChart } from "lucide-react";
-import Sidebar from "../../components/Sidebar";
-import MoodStreak from "@/components/MoodStreak";
 import { useUser } from "@clerk/nextjs";
-import MoodEntry from "../../components/MoodEntry";
-import WeekResume from "@/components/WeekResume";
 import Image from "next/image";
+import Sidebar from "@/components/Sidebar";
+import MoodEntry from "@/components/MoodEntry";
+import MoodStreak from "@/components/MoodStreak";
+import WeekResume from "@/components/WeekResume";
 import DailyQuote from "@/components/DailyQuote";
 
-const moods = [
-  { label: "Great", color: "bg-emerald-900/40 text-emerald-200" },
-  { label: "Good", color: "bg-slate-800 text-slate-200" },
-  { label: "Okay", color: "bg-amber-900/40 text-amber-200" },
-  { label: "Low", color: "bg-orange-900/40 text-orange-200" },
-  { label: "Bad", color: "bg-zinc-900 text-zinc-300" },
-];
-
-const mockEntries = Array.from({ length: 30 }).map((_, i) => {
-  const moodIndex = Math.floor(Math.random() * moods.length);
-  return {
-    day: i + 1,
-    ...moods[moodIndex],
-  };
-});
-
 export default function Dashboard() {
-  const now = new Date();
   const { user } = useUser();
 
   return (
-    <div className="flex min-h-screen bg-gray-300/30 text-zinc-100 font-sans w-full">
+    <div className="flex min-h-screen bg-gray-300/30 w-full">
       <Sidebar />
-      <div className="flex flex-col w-full gap-4 p-4">
-        <div className="flex items-center gap-4">
+
+      <main className="flex flex-col w-full gap-4 p-4">
+        <header className="flex items-center gap-4">
           <Image
             src="/moodium.png"
             alt="Moodium Logo"
@@ -41,30 +24,31 @@ export default function Dashboard() {
             height={48}
             className="hover:scale-115 hover:rotate-10 transition-all duration-500"
           />
-          <div className="flex flex-col">
-            <h1 className="text-mood-great text-xl font-semibold font-play">
+          <div className="flex flex-col my-4">
+            <p className="text-mood-great text-xl font-semibold font-dm-sans">
               {new Date().toDateString()}
+            </p>
+            <h1 className="text-primary text-3xl font-semibold font-dm-sans">
+              Welcome back, {user?.fullName}
             </h1>
-            <h1 className="text-primary text-3xl font-semibold font-play">
-              Welcome back {user?.fullName}
-            </h1>
-            <h1 className="text-primary/80 text-xl font-semibold font-play">
+            <p className="text-primary/80 text-xl font-semibold font-dm-sans">
               How was your day?
-            </h1>
+            </p>
           </div>
-        </div>
+        </header>
 
-        <div className="grid grid-cols-9 gap-x-4 gap-y-4">
-          <div className="grid col-span-7 gap-x-4 gap-y-4 ">
+        <div className="grid grid-cols-9 gap-4">
+          <div className="col-span-7 flex flex-col gap-4">
             <MoodEntry />
             <DailyQuote />
           </div>
-          <div className="grid col-span-2 gap-x-4 gap-y-4 ">
+
+          <div className="col-span-2 flex flex-col gap-4">
             <MoodStreak />
             <WeekResume />
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
