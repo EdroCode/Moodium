@@ -83,7 +83,7 @@ export default function MoodStreak() {
       <div className=" border-t" />
       <a
         href="/calendar-page"
-        className="flex items-center bg-white hover:bg-primary/10 duration-200 transition-all p-2 rounded-lg"
+        className="flex items-center justify-center  bg-white hover:bg-primary/10 duration-200 transition-all p-2 rounded-lg"
       >
         <h1 className="font-play text-primary text-ms px-4">
           View all my Streaks

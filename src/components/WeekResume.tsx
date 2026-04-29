@@ -1,6 +1,7 @@
 "use client";
 import { useMoodEntries } from "@/hooks/useMoodEntries";
 import { getRecentEntries, getDominantMood } from "@/lib/moodUtils";
+import { ArrowBigRight } from "lucide-react";
 
 const MOODS = [
   { key: "great", label: "Great", color: "bg-mood-great" },
@@ -81,12 +82,13 @@ export default function WeekResume() {
         ))}
       </div>
 
-      <div className="border-t mt-2 pt-3">
+      <div className="border-t mt-2 pt-3 items-center">
         <a
           href="/insights"
-          className="font-play text-primary text-sm hover:underline"
+          className="flex items-center justify-center bg-white hover:bg-primary/10 duration-200 transition-all p-2 rounded-lg"
         >
-          View insights →
+          <h1 className="font-play text-primary text-ms px-4">View Insights</h1>
+          <ArrowBigRight className="text-primary w-4 h-4" />
         </a>
       </div>
     </div>
