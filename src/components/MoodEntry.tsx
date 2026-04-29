@@ -112,7 +112,7 @@ export default function MoodEntry() {
   }
 
   return (
-    <div className="w-full min-w-4xl mx-auto bg-white rounded-lg shadow-sm hover:shadow-md p-6">
+    <div className="w-full max-h-100 min-w-4xl mx-auto bg-white rounded-lg shadow-sm hover:shadow-md p-6">
       <h2 className="text-lg font-play text-primary mb-6">
         How are you feeling right now?
       </h2>
