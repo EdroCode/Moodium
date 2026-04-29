@@ -15,7 +15,7 @@ export default function Dashboard() {
   const { user } = useUser();
 
   return (
-    <div className="flex min-h-screen bg-gray-300/30 w-full">
+    <div className="flex min-h-screen bg-gray-200/30 w-full">
       <Sidebar />
 
       <main className="flex flex-col w-full gap-4 p-4">

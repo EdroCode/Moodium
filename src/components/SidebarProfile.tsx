@@ -1,9 +1,22 @@
 "use client";
 import { useUser, useClerk } from "@clerk/nextjs";
+import { useMoodEntries } from "@/hooks/useMoodEntries";
 
 export default function ProfileCard() {
   const { user } = useUser();
+  const { entries, loading } = useMoodEntries();
+
   const { openUserProfile } = useClerk();
+
+  if (loading)
+    return (
+      <div className="lex items-center w-full border border-gray-200 rounded-lg p-2 gap-3 hover:bg-logo/20 transition-all duration-200 cursor-pointer">
+        <div className="relative w-8 h-8">
+          <div className="absolute inset-0 rounded-full border-4 border-primary/10" />
+          <div className="absolute inset-0 rounded-full border-4 border-t-primary border-l-transparent border-r-transparent border-b-transparent animate-spin" />
+        </div>
+      </div>
+    );
 
   return (
     <button
