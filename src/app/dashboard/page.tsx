@@ -8,6 +8,7 @@ import MoodStreak from "@/components/MoodStreak";
 import WeekResume from "@/components/WeekResume";
 import DailyQuote from "@/components/DailyQuote";
 import RecentEntries from "@/components/RecentEntries";
+import MonthStats from "@/components/MonthStats";
 
 export default function Dashboard() {
   const { user } = useUser();
@@ -17,29 +18,28 @@ export default function Dashboard() {
       <Sidebar />
 
       <main className="flex flex-col w-full gap-4 p-4">
-        <header className="flex items-center gap-4">
-          <Image
-            src="/moodium.png"
-            alt="Moodium Logo"
-            width={90}
-            height={48}
-            className="hover:scale-115 hover:rotate-10 transition-all duration-500"
-          />
-          <div className="flex flex-col my-4">
-            <p className="text-mood-great text-xl font-semibold font-dm-sans">
-              {new Date().toDateString()}
-            </p>
-            <h1 className="text-primary text-3xl font-semibold font-dm-sans">
-              Welcome back, {user?.fullName}
-            </h1>
-            <p className="text-primary/80 text-xl font-semibold font-dm-sans">
-              How was your day?
-            </p>
-          </div>
-        </header>
-
         <div className="grid grid-cols-9 gap-4">
           <div className="col-span-7 flex flex-col gap-4">
+            <div className="flex items-center gap-4">
+              <Image
+                src="/moodium.png"
+                alt="Moodium Logo"
+                width={90}
+                height={48}
+                className="hover:scale-115 hover:rotate-10 transition-all duration-500"
+              />
+              <div className="flex flex-col my-4">
+                <p className="text-mood-great text-xl font-semibold font-dm-sans">
+                  {new Date().toDateString()}
+                </p>
+                <h1 className="text-primary text-3xl font-semibold font-dm-sans">
+                  Welcome back, {user?.fullName}
+                </h1>
+                <p className="text-primary/80 text-xl font-semibold font-dm-sans">
+                  How was your day?
+                </p>
+              </div>
+            </div>
             <MoodEntry />
             <RecentEntries />
             <DailyQuote />
@@ -48,6 +48,7 @@ export default function Dashboard() {
           <div className="col-span-2 flex flex-col gap-4">
             <MoodStreak />
             <WeekResume />
+            <MonthStats />
           </div>
         </div>
       </main>
