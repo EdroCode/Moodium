@@ -1,7 +1,11 @@
 "use client";
 
 import { useMoodEntries } from "@/hooks/useMoodEntries";
-import { getDominantMood, getAverageMood } from "@/lib/moodUtils";
+import {
+  getDominantMood,
+  getAverageMood,
+  getRecentEntries,
+} from "@/lib/moodUtils";
 
 const MOOD_COLORS: Record<string, string> = {
   great: "text-mood-great",

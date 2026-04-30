@@ -1,4 +1,4 @@
-import { MoodEntry } from "@/hooks/useMoodEntries";
+import { MoodEntry } from "@/types/mood";
 import { supabase } from "@/lib/supabase";
 
 const MOOD_RANK: Record<string, number> = {
@@ -93,3 +93,14 @@ export async function hasLoggedToday(userId: string): Promise<boolean> {
 
   return !!data;
 }
+
+export const moodToNumber = (mood: string) => {
+  const map: Record<string, number> = {
+    bad: 1,
+    low: 2,
+    okay: 3,
+    good: 4,
+    great: 5,
+  };
+  return map[mood] ?? 0;
+};

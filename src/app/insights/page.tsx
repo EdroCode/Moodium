@@ -1,20 +1,29 @@
 "use client";
 
 import Sidebar from "../../components/Sidebar";
-import MoodEntry from "@/components/MoodEntry";
-import MoodStreak from "@/components/MoodStreak";
 import WeekResume from "@/components/WeekResume";
-import DailyQuote from "@/components/DailyQuote";
-import RecentEntries from "@/components/RecentEntries";
 import MonthStats from "@/components/MonthStats";
+import MoodChart, { AreaMoodChart } from "@/components/MoodChart";
+import { useMoodEntries } from "@/hooks/useMoodEntries";
+import { getRecentEntries, moodToNumber } from "@/lib/moodUtils";
 
 export default function Insights() {
+  const { entries, loading } = useMoodEntries();
+
+  const data = getRecentEntries(entries, 30).map((entry) => ({
+    date: entry.date,
+    mood: moodToNumber(entry.mood ?? ""),
+    moodLabel: entry.mood ?? "",
+  }));
+
   return (
-    <div className="flex min-h-screen bg-white bg-gray-200/30 ">
+    <div className="flex min-h-screen bg-gray-200/30">
       <Sidebar />
-      <main className="p-4 grid grid-cols-2 gap-4">
+      <main className="p-4 grid grid-cols-2 gap-4 w-full">
         <WeekResume />
         <MonthStats />
+        <MoodChart chartData={data} />
+        <AreaMoodChart chartData={data} />
       </main>
     </div>
   );
