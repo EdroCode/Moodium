@@ -1,17 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useUser } from "@clerk/nextjs";
 import { supabase } from "@/lib/supabase";
-
-export type MoodEntry = {
-  id: string;
-  user_id: string;
-  date: string;
-  mood: string;
-  note: string | null;
-  tags: string[];
-  created_at: string;
-  updated_at: string;
-};
+import { MoodEntry } from "@/types/mood";
 
 export function useMoodEntries() {
   const { user, isLoaded } = useUser();
