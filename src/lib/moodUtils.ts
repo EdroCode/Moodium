@@ -1,12 +1,20 @@
 import { MoodEntry } from "@/types/mood";
 import { supabase } from "@/lib/supabase";
 
-const MOOD_RANK: Record<string, number> = {
+export const MOOD_RANK: Record<string, number> = {
   great: 5,
   good: 4,
   okay: 3,
   low: 2,
   bad: 1,
+};
+
+export const MOOD_LABEL: Record<number, string> = {
+  5: "Great",
+  4: "Good",
+  3: "Okay",
+  2: "Low",
+  1: "Bad",
 };
 
 export function getStreak(entries: MoodEntry[]): number {

@@ -47,9 +47,9 @@ type MoodChartProps = {
 export default function MoodChart({ chartData }: MoodChartProps) {
   return (
     <div className="bg-white p-4 h-fit rounded-lg shadow-sm hover:shadow-md">
-      <h1 className="font-play text-primary/80 font-bold text-md">
+      <p className="font-play text-primary/60 font-bold text-xs tracking-widest uppercase">
         MOOD TREND
-      </h1>
+      </p>
       <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
         <BarChart accessibilityLayer data={chartData}>
           <XAxis
