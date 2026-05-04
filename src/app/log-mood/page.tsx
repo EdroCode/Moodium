@@ -12,7 +12,7 @@ export default function LogMood() {
   return (
     <div className="flex min-h-screen bg-gray-200/30 font-sans ">
       <Sidebar />
-      <main className="p-4">
+      <main className="p-4 w-full h-full">
         <MoodEntry />
       </main>
     </div>

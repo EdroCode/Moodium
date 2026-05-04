@@ -20,11 +20,13 @@ export function MoodTimeline({
   title = "Mood Timeline",
   date,
 }: MoodTimelineProps) {
+  const orderedData = [...chartData].reverse();
+
   return (
     <div className="flex flex-col gap-2 bg-white rounded-lg shadow-sm hover:shadow-md p-4">
       <h1 className="font-play font-bold text-md">{title.toUpperCase()}</h1>
       <div className="flex w-full h-8 rounded-full overflow-hidden">
-        {chartData.map((entry, index) => (
+        {orderedData.map((entry, index) => (
           <div
             key={index}
             className="flex-1 h-full"
@@ -38,8 +40,8 @@ export function MoodTimeline({
       </div>
       {date ? (
         <div className="flex justify-between text-xs text-gray-400 font-mono">
-          <span>{chartData[0]?.date}</span>
-          <span>{chartData[chartData.length - 1]?.date}</span>
+          <span>{orderedData[0]?.date}</span>
+          <span>{orderedData[orderedData.length - 1]?.date}</span>
         </div>
       ) : (
         <></>
